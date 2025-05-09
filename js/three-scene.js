@@ -41,12 +41,18 @@ class HeroScene {
     
     // Zoom limits and tracking variables (for desktop only)
     this.defaultZoomPosition = this.isMobile ? 6 : 5; // Default camera Z position
-    this.minZoomDistance = 2;   // Closest zoom allowed
-    this.maxZoomDistance = 8;   // Furthest zoom allowed
+    this.minZoomDistance = 5;   // Closest zoom allowed
+    this.maxZoomDistance = 3;   // Furthest zoom allowed
     this.zoomScrollCount = 0;   // Track number of zoom actions
     this.maxZoomScrolls = 3;    // Maximum allowed zoom scroll actions
     this.zoomScrollTimer = null; // For resetting zoom count after inactivity
     this.zoomScrollResetTime = 2000; // Reset zoom count after 2 seconds of inactivity
+    
+    // Animation properties for auto-rotation
+    this.autoRotationSpeed = {
+      sphere: { x: 0.005, y: 0.007, z: 0.003 },
+      particles: { x: 0.002, y: -0.003, z: 0.001 }
+    };
     
     // Initialize 3D scene
     this.initScene();
@@ -136,7 +142,11 @@ class HeroScene {
       opacity: 0.9,
     });
     this.mainSphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
-    this.objectGroup.add(this.mainSphere);
+    
+    // Create a separate group for the main sphere so it can rotate independently
+    this.sphereGroup = new THREE.Group();
+    this.sphereGroup.add(this.mainSphere);
+    this.objectGroup.add(this.sphereGroup);
     
     // Create distorted torus for interesting shape
     const torusGeometry = new THREE.TorusGeometry(0.8, 0.3, 16, 100);
@@ -199,8 +209,11 @@ class HeroScene {
       sizeAttenuation: !this.isMobile, // Disable size attenuation on mobile for performance
     });
     
+    // Create separate group for particles to allow independent rotation
     this.particles = new THREE.Points(particlesGeometry, particlesMaterial);
-    this.objectGroup.add(this.particles);
+    this.particlesGroup = new THREE.Group();
+    this.particlesGroup.add(this.particles);
+    this.objectGroup.add(this.particlesGroup);
   }
   
   addEventListeners() {
@@ -576,7 +589,6 @@ class HeroScene {
     
     // Adjust animation speeds based on device for performance
     const torusSpeed = this.isMobile ? 0.003 : 0.005;
-    const particleSpeed = this.isMobile ? 0.0005 : 0.001;
     const idleRotationSpeed = this.isMobile ? 0.0005 : 0.001;
     
     // Rotate torus in opposite direction for added visual interest
@@ -584,9 +596,18 @@ class HeroScene {
       this.torus.rotation.z += torusSpeed;
     }
     
-    // Make particles rotate slightly differently
-    if (this.particles) {
-      this.particles.rotation.y -= particleSpeed;
+    // Auto-rotate the sphere independently
+    if (this.sphereGroup) {
+      this.sphereGroup.rotation.x += this.autoRotationSpeed.sphere.x;
+      this.sphereGroup.rotation.y += this.autoRotationSpeed.sphere.y;
+      this.sphereGroup.rotation.z += this.autoRotationSpeed.sphere.z;
+    }
+    
+    // Rotate particles in a different direction
+    if (this.particlesGroup) {
+      this.particlesGroup.rotation.x += this.autoRotationSpeed.particles.x;
+      this.particlesGroup.rotation.y += this.autoRotationSpeed.particles.y;
+      this.particlesGroup.rotation.z += this.autoRotationSpeed.particles.z;
     }
     
     // Add subtle autonomous motion when not being dragged
