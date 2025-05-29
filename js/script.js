@@ -142,69 +142,42 @@ async function loadProjects() {
         const fallbackProjects = 
         [
             {
-              "id": 1,
-              "title": "Graphic Design #1",
-              "category": "design",
-              "image": "database/img/Kaoru.png",
-              "description": "Custom-designed anime banner featuring vibrant artwork and dynamic character illustrations, perfect for showcasing your favorite series or events.",
-              "tags": ["Anime", "Photoshop", "Illustrator"],
-              "liveUrl": "#"
-            },
-            {
-              "id": 2,
-              "title": "Graphic Design #2",
-              "category": "design",
-              "image": "database/img/shiina.webp",
-              "description": "Complete brand identity system including logo, typography, and marketing materials.",
-              "tags": ["Branding", "Illustrator", "Print Design"],
-              "liveUrl": "#"
-            },
-            {
-              "id": 3,
-              "title": "Photography #1",
-              "category": "img",
-              "image": "database/img/IMG_4425.JPG",
-              "description": "Workout planner and progress tracker with customizable goals and achievements.",
-              "tags": ["Sony", "Lightroom", "Photograph"],
-              "liveUrl": "#"
-            },
-            {
-              "id": 4,
-              "title": "Photography #2",
-              "category": "img",
-              "image": "database/img/image-2.jpeg",
-              "description": "Workout planner and progress tracker with customizable goals and achievements.",
-              "tags": ["Sony", "Lightroom", "Photograph"],
-              "liveUrl": "#"
-            },
-            {
-              "id": 5,
-              "title": "Photography #3",
-              "category": "img",
-              "image": "database/img/image-3.jpeg",
-              "description": "Workout planner and progress tracker with customizable goals and achievements.",
-              "tags": ["Sony", "Lightroom", "Photograph"],
-              "liveUrl": "#"
-            },
-            {
-              "id": 6,
-              "title": "Photography #4",
-              "category": "img",
-              "image": "database/img/image-5.jpeg",
-              "description": "Workout planner and progress tracker with customizable goals and achievements.",
-              "tags": ["Sony", "Lightroom", "Photograph"],
-              "liveUrl": "#"
-            },
-            {
-              "id": 7,
-              "title": "Website #1",
-              "category": "web",
-              "image": "database/img/web.png",
-              "description": "Workout planner and progress tracker with customizable goals and achievements.",
-              "tags": ["HTML", "CSS", "JS"],
-              "liveUrl": "#",
-              "githubUrl": "#"
-            }
+                "id": 1,
+                "title": "Graphic Design #1",
+                "category": "design",
+                "image": "database/img/Kaoru.png",
+                "description": "Custom-designed anime banner featuring vibrant artwork and dynamic character illustrations, perfect for showcasing your favorite series or events.",
+                "tags": ["Anime", "Photoshop", "Illustrator"],
+                "liveUrl": "#"
+              },
+              {
+                "id": 2,
+                "title": "Graphic Design #2",
+                "category": "design",
+                "image": "database/img/shiina.webp",
+                "description": "Custom-designed anime banner featuring vibrant artwork and dynamic character illustrations, perfect for showcasing your favorite series or events.",
+                "tags": ["Anime", "Illustrator", "Banner"],
+                "liveUrl": "#"
+              },
+              {
+                "id": 3,
+                "title": "Graphic Design #3",
+                "category": "design",
+                "image": "database/img/graphic-design-3.png",
+                "description": "Custom-designed anime banner featuring vibrant artwork and dynamic character illustrations, perfect for showcasing your favorite series or events.",
+                "tags": ["Anime", "Photoshop", "Illustrator"],
+                "liveUrl": "#"
+              },
+              {
+                "id": 7,
+                "title": "Website #1",
+                "category": "web",
+                "image": "database/img/web.png",
+                "description": "Workout planner and progress tracker with customizable goals and achievements.",
+                "tags": ["HTML", "CSS", "JS"],
+                "liveUrl": "#",
+                "githubUrl": "#"
+              }
         ];
         
         window.allProjects = fallbackProjects;
