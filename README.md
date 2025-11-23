@@ -53,10 +53,11 @@ To run this project locally:
 ---
 
 ## Project Structure
-│ index.html # Main HTML file
-│ LICENSE.txt # Project license (MIT)
-│ README.md # This readme
-└───css/ # Stylesheets (modular CSS)
-└───js/ # JavaScript logic (animations, modals, etc.)
-└───database/ # (If used) Data files / storage
+│ index.html
+│ LICENSE.txt
+│ README.md
+└───css/
+└───js/
+└───database/
+
 
