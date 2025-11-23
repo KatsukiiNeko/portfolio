@@ -52,12 +52,5 @@ To run this project locally:
 
 ---
 
-## Project Structure
-│ index.html
-│ LICENSE.txt
-│ README.md
-└───css/
-└───js/
-└───database/
-
-
+## Website
+https://katsukiineko.github.io/portfolio/
